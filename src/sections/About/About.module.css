@@ -1,0 +1,214 @@
+.aboutSection {
+  padding: 7rem 0;
+  position: relative;
+  background-color: var(--color-background);
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  margin-bottom: 5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .introGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+  }
+}
+
+.storyCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.storyTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.paragraph {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.highlightQuote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+  font-style: italic;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.downloadRow {
+  margin-top: 1rem;
+}
+
+.resumeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(17, 18, 13, 0.1);
+}
+
+.resumeBtn:hover {
+  background-color: #282922;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 18, 13, 0.16);
+  color: #fff;
+}
+
+/* Philosophy 4-card grid */
+.philosophyGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .philosophyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.philosophyCard {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.philosophyCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-dark);
+}
+
+.iconCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-light);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.cardText {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Skills Breakdown */
+.skillsSection {
+  margin-top: 5rem;
+}
+
+.skillsTitle {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skillsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.skillCategoryCard {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.categoryIcon {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.categoryName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.skillsPillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.skillPill {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+}
+
+.skillPill:hover {
+  background-color: var(--color-accent-light);
+  color: var(--color-primary);
+  border-color: var(--color-accent-dark);
+}

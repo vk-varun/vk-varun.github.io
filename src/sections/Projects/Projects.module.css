@@ -1,0 +1,118 @@
+.projectsSection {
+  padding: 7rem 0;
+  position: relative;
+  background-color: var(--color-background);
+  border-top: 1px solid var(--color-border);
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3.5rem;
+}
+
+.filterBtn {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+}
+
+.filterBtn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-accent-dark);
+}
+
+.filterBtnActive {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse) !important;
+  border-color: var(--color-primary);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(17, 18, 13, 0.12);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .projectsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.githubCtaBox {
+  margin-top: 4.5rem;
+  padding: 2.5rem;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 768px) {
+  .githubCtaBox {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 2.5rem 3.5rem;
+  }
+}
+
+.ctaTextCol {
+  max-width: 580px;
+}
+
+.ctaHeading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.ctaDescription {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.githubBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.githubBtn:hover {
+  background-color: #282a22;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(17, 18, 13, 0.16);
+  color: #fff;
+}
