@@ -95,7 +95,6 @@ export default function Navbar() {
                     onClick={(e) => handleNavClick(e, item.id)}
                     className={`${styles.navLink} ${isActive ? styles.activeLink : ''}`}
                   >
-                    {item.label}
                     {isActive && (
                       <motion.div
                         layoutId="activeNavPill"
@@ -103,6 +102,7 @@ export default function Navbar() {
                         transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                       />
                     )}
+                    <span className={styles.navLabel}>{item.label}</span>
                   </a>
                 </li>
               );

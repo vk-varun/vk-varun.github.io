@@ -104,6 +104,12 @@
   z-index: 1;
 }
 
+.navLabel {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+}
+
 .navLink:hover {
   color: var(--color-primary);
 }
@@ -120,7 +126,8 @@
   border-radius: var(--radius-pill);
   box-shadow: 0 2px 8px rgba(17, 18, 13, 0.08);
   border: 1px solid var(--color-border);
-  z-index: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .contactBtn {
