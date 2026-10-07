@@ -5,6 +5,7 @@ import {
   slideInRight,
   floatingAnimation,
 } from '../../animations/animations';
+import InteractiveGrid from '../../components/InteractiveGrid';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -23,6 +24,9 @@ export default function Home() {
 
   return (
     <section id="home" className={styles.heroSection}>
+      {/* 3D Interactive Hover Grid Background */}
+      <InteractiveGrid />
+
       {/* Ambient background glow orbs */}
       <div className={styles.ambientHalo1} aria-hidden="true" />
       <div className={styles.ambientHalo2} aria-hidden="true" />
