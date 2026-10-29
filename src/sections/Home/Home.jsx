@@ -83,7 +83,7 @@ export default function Home() {
             {/* Live Metrics Row */}
             <motion.div variants={fadeInUp} className={styles.metricsRow}>
               <div className={styles.metricItem}>
-                <span className={styles.metricValue}>7+</span>
+                <span className={styles.metricValue}>5+</span>
                 <span className={styles.metricLabel}>Years Experience</span>
               </div>
               <div className={styles.metricItem}>

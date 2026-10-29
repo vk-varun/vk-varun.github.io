@@ -85,7 +85,7 @@ export default function About() {
               Passionate about creating digital products that are as robust behind the scenes as they are beautiful on screen.
             </h3>
             <p className={styles.paragraph}>
-              With over 7 years of engineering experience across high-growth startups and established tech environments, I've architected client-side applications, resilient distributed services, and high-conversion user interfaces.
+              With over 5 years of engineering experience across high-growth startups and established tech environments, I've architected client-side applications, resilient distributed services, and high-conversion user interfaces.
             </p>
             <blockquote className={styles.highlightQuote}>
               "Great software balances speed, accessibility, structural clarity, and unforgettable aesthetic cohesion."
