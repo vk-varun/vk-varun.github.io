@@ -11,21 +11,10 @@ export default function Contact() {
     message: '',
   });
 
-  const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [formStatus, setFormStatus] = useState({ state: 'idle', message: '' });
-
-  const emailAddress = 'varun.codes@gmail.com';
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(emailAddress);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 2400);
-  };
 
   const handleChange = (e) => {
     setFormData({

@@ -42,7 +42,9 @@ export default function Home() {
           >
             {/* Status indicator pill */}
             <motion.div variants={fadeInUp} className={styles.availabilityBadge}>
-              <span className={styles.pulsingDot} />
+              <span className={styles.waveIcon} role="img" aria-label="Waving hand">
+                👋
+              </span>
               <span>Available for engineering leadership & projects</span>
             </motion.div>
 

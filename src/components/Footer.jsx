@@ -24,7 +24,7 @@ export default function Footer() {
               cloud infrastructure, and user-focused digital products.
             </p>
             <div className={styles.statusIndicator}>
-              <span className={styles.statusDot}></span>
+              <i className={`ri-map-pin-2-fill ${styles.locationIcon}`} aria-hidden="true"></i>
               <span>Based in Dubai, UAE • Available for collaborations</span>
             </div>
           </div>
