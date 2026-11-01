@@ -15,6 +15,8 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [formStatus, setFormStatus] = useState({ state: 'idle', message: '' });
+
   const emailAddress = 'varun.codes@gmail.com';
 
   const handleCopyEmail = () => {
@@ -32,16 +34,48 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFormStatus({ state: 'idle', message: '' });
 
-    // Simulate API network request
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'Portfolio Contact Submission',
+          message: formData.message,
+          from_name: 'Portfolio Contact Form',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200 && result.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        // If placeholder access key or submission issue, fallback gracefully to informative status
+        setFormStatus({
+          state: 'error',
+          message: result.message || 'Unable to submit via Web3Forms. Please try emailing directly.',
+        });
+      }
+    } catch {
+      setFormStatus({
+        state: 'error',
+        message: 'Network error. Please email directly or try again later.',
+      });
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1200);
+    }
   };
 
   return (
@@ -114,11 +148,11 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className={styles.methodLabel}>Location</span>
-                    <p className={styles.methodValue}>San Francisco, CA (PST / UTC-7)</p>
+                    <p className={styles.methodValue}>Dubai, United Arab Emirates (GST / UTC+4)</p>
                   </div>
                 </div>
                 <span className={styles.methodLabel} style={{ fontWeight: 600 }}>
-                  Remote Friendly
+                  Remote / Global
                 </span>
               </div>
 
@@ -284,6 +318,13 @@ export default function Contact() {
                       className={styles.textarea}
                     />
                   </div>
+
+                  {formStatus.state === 'error' && (
+                    <div className={styles.errorAlert} role="alert">
+                      <i className="ri-error-warning-line" aria-hidden="true"></i>
+                      <span>{formStatus.message}</span>
+                    </div>
+                  )}
 
                   <button
                     type="submit"
