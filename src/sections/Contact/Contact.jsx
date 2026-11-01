@@ -153,7 +153,7 @@ export default function Contact() {
                   <i className="ri-github-line" aria-hidden="true"></i>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/varun-kumaravel/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}

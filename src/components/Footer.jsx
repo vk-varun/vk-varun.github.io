@@ -61,7 +61,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className={styles.linkItem}>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/varun-kumaravel/" target="_blank" rel="noopener noreferrer">
                     <i className="ri-linkedin-box-line" aria-hidden="true"></i>
                     <span>LinkedIn</span>
                   </a>
