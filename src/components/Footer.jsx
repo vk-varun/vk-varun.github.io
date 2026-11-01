@@ -73,7 +73,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className={styles.linkItem}>
-                  <a href="mailto:varun.codes@gmail.com">
+                  <a href="mailto:">
                     <i className="ri-mail-line" aria-hidden="true"></i>
                     <span>Email</span>
                   </a>
@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className={styles.bottomBar}>
           <p className={styles.copyright}>
-            © {currentYear} Varun Kumaravel. All rights reserved. Built with React, Vite & Framer Motion.
+            © {currentYear} Varun Kumaravel. All rights reserved.
           </p>
 
           <button

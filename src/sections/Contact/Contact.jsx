@@ -116,7 +116,7 @@ export default function Contact() {
 
             <div className={styles.contactCardsList}>
               {/* Email Card with 1-Click Copy */}
-              <div className={styles.contactMethodCard}>
+              {/* <div className={styles.contactMethodCard}>
                 <div className={styles.methodLeft}>
                   <div className={styles.methodIcon}>
                     <i className="ri-mail-line" aria-hidden="true"></i>
@@ -138,7 +138,7 @@ export default function Contact() {
                   ></i>
                   <span>{copied ? 'Copied!' : 'Copy'}</span>
                 </button>
-              </div>
+              </div> */}
 
               {/* Location Card */}
               <div className={styles.contactMethodCard}>
