@@ -84,8 +84,9 @@ const timelineEntries = [
     company: 'University Degree',
     period: 'Graduated',
     location: 'Academic Milestone',
+    honor: 'Summa Cum Laude',
     highlights: [
-      'Graduated with highest honors (Summa Cum Laude) specializing in Distributed Systems & Software Engineering.',
+      'Graduated with highest academic honors (Summa Cum Laude) specializing in Distributed Systems & Software Engineering.',
       'Core foundation in data structures, algorithms, operating systems, software engineering principles, and distributed architectures.',
     ],
     tech: ['Distributed Systems', 'Software Engineering', 'Algorithms', 'Computer Systems'],
@@ -145,33 +146,35 @@ export default function Experience() {
                       isEducation ? styles.educationCard : ''
                     }`}
                   >
-                    <div className={styles.cardHeaderRow}>
-                      <span
-                        className={`${styles.typeBadge} ${
-                          isEducation ? styles.educationTypeBadge : styles.workTypeBadge
-                        }`}
-                      >
-                        <i
-                          className={isEducation ? 'ri-graduation-cap-line' : 'ri-briefcase-line'}
-                          aria-hidden="true"
-                        />
-                        <span>{isEducation ? 'Education' : 'Experience'}</span>
-                      </span>
-
-                      <span className={styles.periodBadge}>
-                        <i className="ri-calendar-line" aria-hidden="true" />
-                        <span>{item.period}</span>
-                      </span>
-                    </div>
-
                     <div className={styles.cardTop}>
                       <div>
-                        <h3 className={styles.roleTitle}>{item.role}</h3>
+                        {isEducation && (
+                          <div className={styles.educationTypeBadgeWrapper}>
+                            <span className={styles.educationTypeBadge}>
+                              <i className="ri-graduation-cap-line" aria-hidden="true" />
+                              <span>Education</span>
+                            </span>
+                          </div>
+                        )}
+                        <div className={styles.roleTitleGroup}>
+                          <h3 className={styles.roleTitle}>{item.role}</h3>
+                          {item.honor && (
+                            <span className={styles.honorBadge}>
+                              <i className="ri-award-fill" aria-hidden="true" />
+                              <span>{item.honor}</span>
+                            </span>
+                          )}
+                        </div>
                         <p className={styles.companyName}>
                           {item.company} •{' '}
                           <span style={{ fontWeight: 400 }}>{item.location}</span>
                         </p>
                       </div>
+
+                      <span className={styles.periodBadge}>
+                        <i className="ri-calendar-line" aria-hidden="true" />
+                        <span>{item.period}</span>
+                      </span>
                     </div>
 
                     <ul className={styles.highlightsList}>
