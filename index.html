@@ -11,6 +11,11 @@
   <meta name="description"
     content="Portfolio of Varun Kumaravel — Software Developer and Tech Entrepreneur specializing in Web & Mobile App Development, Cloud Computing, Network Management, and Innovative Digital Solutions." />
 
+  <!-- Robots & Search Engine Indexing -->
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="keywords" content="Varun Kumaravel, Software Developer, Tech Entrepreneur, Full Stack Developer, Web Development, Mobile App Development, Cloud Computing, Network Management, Dubai, React, Next.js" />
+
   <!-- Canonical URL -->
   <link rel="canonical" href="https://vk-varun.github.io/" />
 
@@ -42,6 +47,53 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
+
+  <!-- JSON-LD Structured Data (Person & WebSite Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://vk-varun.github.io/#person",
+        "name": "Varun Kumaravel",
+        "url": "https://vk-varun.github.io/",
+        "image": "https://vk-varun.github.io/og-image.jpg",
+        "jobTitle": "Software Developer & Tech Entrepreneur",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Creators Blueprint"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Middlesex University"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dubai",
+          "addressCountry": "AE"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/varun-kumaravel/",
+          "https://github.com/vk-varun"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vk-varun.github.io/#website",
+        "url": "https://vk-varun.github.io/",
+        "name": "Varun Kumaravel Portfolio",
+        "description": "Portfolio of Varun Kumaravel — Software Developer and Tech Entrepreneur specializing in Web & Mobile App Development, Cloud Computing, and Network Management.",
+        "publisher": {
+          "@id": "https://vk-varun.github.io/#person"
+        },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
 
   <title>Varun Kumaravel | Software Developer & Tech Entrepreneur</title>
 </head>
