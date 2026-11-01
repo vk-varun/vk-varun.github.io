@@ -43,7 +43,7 @@ const skillGroups = [
   {
     category: 'Databases & Cloud',
     icon: 'ri-database-2-line',
-    skills: ['PostgreSQL', 'MongoDB', 'Redis Caching', 'Prisma ORM', 'AWS (S3, Lambda, EC2)', 'Docker & Containers', 'Vercel / Cloudflare', 'CI/CD Pipelines'],
+    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'SQL', 'GCP', 'AWS (S3, Lambda, EC2)', 'Docker & Containers', 'CI/CD Pipelines'],
   },
   {
     category: 'Architecture & Craft',
@@ -82,16 +82,16 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
           >
             <h3 className={styles.storyTitle}>
-              Passionate about creating digital products that are as robust behind the scenes as they are beautiful on screen.
+              Passionate about engineering practical, user-focused digital products that solve real-world problems.
             </h3>
             <p className={styles.paragraph}>
-              With over 5 years of engineering experience across high-growth startups and established tech environments, I've architected client-side applications, resilient distributed services, and high-conversion user interfaces.
+              With a Master’s degree in Network Management and Cloud Computing and a solid technical foundation, I approach every project with an entrepreneurial, builder’s mindset: understanding the core problem, designing scalable architectures, and transforming ideas into working products.
             </p>
             <blockquote className={styles.highlightQuote}>
-              "Great software balances speed, accessibility, structural clarity, and unforgettable aesthetic cohesion."
+              "Great software is not just about writing code; it is about solving meaningful problems, improving user experiences, and creating real value."
             </blockquote>
             <p className={styles.paragraph}>
-              When I'm not architecting web platforms or tweaking motion curves, I contribute to open-source tooling, write technical notes on distributed systems, and mentor upcoming engineers.
+              From full-stack web and mobile platforms to cloud infrastructure and automated workflows, I focus on building systems that are functional, performant, and aligned with user needs.
             </p>
 
             <div className={styles.downloadRow}>
@@ -100,7 +100,7 @@ export default function About() {
                 className={styles.resumeBtn}
               >
                 <i className="ri-mail-send-line" aria-hidden="true"></i>
-                <span>Get in Touch for Opportunities</span>
+                <span>Get in Touch for Collaborations</span>
               </a>
             </div>
           </motion.div>

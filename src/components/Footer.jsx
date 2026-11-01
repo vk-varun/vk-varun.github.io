@@ -17,15 +17,15 @@ export default function Footer() {
           <div className={styles.brandCol}>
             <div className={styles.logo}>
               <div className={styles.logoIcon}>VK</div>
-              <span>Varun K.</span>
+              <span>Varun Kumaravel</span>
             </div>
             <p className={styles.bio}>
-              Senior Full-Stack Engineer crafting scalable systems, performant web applications,
-              and visually memorable digital products.
+              Software Developer & Tech Entrepreneur building scalable web and mobile solutions,
+              cloud infrastructure, and user-focused digital products.
             </p>
             <div className={styles.statusIndicator}>
               <span className={styles.statusDot}></span>
-              <span>Available for selected engineering & consulting projects</span>
+              <span>Based in Dubai, UAE • Available for collaborations</span>
             </div>
           </div>
 
@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className={styles.bottomBar}>
           <p className={styles.copyright}>
-            © {currentYear} Varun K. All rights reserved. Built with React, Vite & Framer Motion.
+            © {currentYear} Varun Kumaravel. All rights reserved. Built with React, Vite & Framer Motion.
           </p>
 
           <button

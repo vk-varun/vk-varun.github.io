@@ -48,15 +48,15 @@ export default function Home() {
 
             {/* Headline */}
             <motion.h1 variants={fadeInUp} className={styles.headline}>
-              Engineering refined web systems
-              <span className={styles.highlightText}>with sculptural precision.</span>
+              Engineering digital solutions
+              <span className={styles.highlightText}>with a builder's mindset.</span>
             </motion.h1>
 
             {/* Subtitle / Bio */}
             <motion.p variants={fadeInUp} className={styles.leadBio}>
-              I'm <strong>Varun K.</strong>, a Senior Full-Stack Engineer crafting high-performance
-              web architectures, intuitive interfaces, and resilient digital experiences from
-              concept to scale.
+              I'm <strong>Varun Kumaravel</strong>, a Software Developer & Tech Entrepreneur
+              specializing in full-stack web and mobile applications, cloud computing, and
+              scalable network architectures based in Dubai, UAE.
             </motion.p>
 
             {/* Call to action buttons */}
@@ -87,7 +87,7 @@ export default function Home() {
                 <span className={styles.metricLabel}>Years Experience</span>
               </div>
               <div className={styles.metricItem}>
-                <span className={styles.metricValue}>45+</span>
+                <span className={styles.metricValue}>25+</span>
                 <span className={styles.metricLabel}>Systems Shipped</span>
               </div>
               <div className={styles.metricItem}>
@@ -122,27 +122,27 @@ export default function Home() {
                     <span className={styles.keyword}>const</span> engineer = &#123;
                   </p>
                   <p style={{ paddingLeft: '1.25rem' }}>
-                    <span className={styles.property}>name</span>: <span className={styles.string}>'Varun K.'</span>,
+                    <span className={styles.property}>name</span>: <span className={styles.string}>'Varun Kumaravel'</span>,
                   </p>
                   <p style={{ paddingLeft: '1.25rem' }}>
-                    <span className={styles.property}>role</span>: <span className={styles.string}>'Senior Full-Stack'</span>,
+                    <span className={styles.property}>location</span>: <span className={styles.string}>'Dubai, UAE'</span>,
                   </p>
                   <p style={{ paddingLeft: '1.25rem' }}>
                     <span className={styles.property}>focus</span>: [
-                    <span className={styles.string}>'React'</span>,{' '}
-                    <span className={styles.string}>'Node'</span>,{' '}
-                    <span className={styles.string}>'Distributed'</span>],
+                    <span className={styles.string}>'Web & Mobile'</span>,{' '}
+                    <span className={styles.string}>'Cloud & Networks'</span>,{' '}
+                    <span className={styles.string}>'Full-Stack'</span>],
                   </p>
                   <p style={{ paddingLeft: '1.25rem' }}>
-                    <span className={styles.property}>philosophy</span>:{' '}
-                    <span className={styles.string}>'Speed & Clarity'</span>,
+                    <span className={styles.property}>mindset</span>:{' '}
+                    <span className={styles.string}>'Solve Real Problems'</span>,
                   </p>
                   <p style={{ paddingLeft: '1.25rem' }}>
                     <span className={styles.property}>status</span>:{' '}
-                    <span className={styles.string}>'Ready to build'</span>
+                    <span className={styles.string}>'Open to collaborate'</span>
                   </p>
                   <p>&#125;;</p>
-                  <p className={styles.comment}>// Crafting experiences that scale seamlessly</p>
+                  <p className={styles.comment}>// Turning innovative concepts into practical products</p>
                 </div>
 
                 <div className={styles.techPillsGroup}>
