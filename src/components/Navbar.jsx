@@ -191,8 +191,9 @@ export default function Navbar({ currentPage, onNavigateHome, onNavigateBlogs })
                     <a
                       href={linkHref}
                       onClick={(e) => handleNavClick(e, item.id)}
-                      className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ''
-                        }`}
+                      className={`${styles.mobileNavLink} ${
+                        isActive ? styles.mobileNavLinkActive : ''
+                      }`}
                     >
                       <span>{item.label}</span>
                       <i className="ri-arrow-right-s-line" aria-hidden="true"></i>
