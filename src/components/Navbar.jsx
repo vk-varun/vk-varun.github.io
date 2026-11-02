@@ -9,7 +9,6 @@ const navItems = [
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
   { id: 'blogs', label: 'Blogs' },
-  { id: 'contact', label: 'Contact' },
 ];
 
 export default function Navbar({ currentPage, onNavigateHome, onNavigateBlogs }) {
@@ -44,19 +43,37 @@ export default function Navbar({ currentPage, onNavigateHome, onNavigateBlogs })
         return;
       }
 
-      // Detect active section
-      const sections = navItems.map((item) => document.getElementById(item.id));
+      // Detect active section on home view
+      // Include contact and footer so scrolling past experience clears the active highlight
+      const contactEl = document.getElementById('contact');
+      const contactTop = contactEl ? contactEl.offsetTop - 140 : Infinity;
       const scrollPosition = window.scrollY + 140;
 
+      // If user has scrolled into Contact or Footer, do not highlight any of the 5 nav items
+      if (window.scrollY >= contactTop) {
+        setActiveSection('');
+        return;
+      }
+
+      // Check section bounds for on-page sections
+      const onPageItems = navItems.filter((item) => item.id !== 'blogs');
+      const sections = onPageItems.map((item) => document.getElementById(item.id));
+
+      let matched = false;
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (section) {
           const top = section.offsetTop;
           if (scrollPosition >= top) {
-            setActiveSection(navItems[i].id);
+            setActiveSection(onPageItems[i].id);
+            matched = true;
             break;
           }
         }
+      }
+
+      if (!matched) {
+        setActiveSection('');
       }
     };
 
