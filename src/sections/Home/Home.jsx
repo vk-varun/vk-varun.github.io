@@ -6,20 +6,12 @@ import {
   floatingAnimation,
 } from '../../animations/animations';
 import InteractiveGrid from '../../components/InteractiveGrid';
+import { scrollToSection } from '../../utils/navigation';
 import styles from './Home.module.css';
 
 export default function Home() {
   const handleScrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const topOffset = 70;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
+    scrollToSection(id, true);
   };
 
   return (

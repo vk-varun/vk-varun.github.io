@@ -4,6 +4,7 @@ import {
   staggerContainer,
   slideInLeft,
 } from '../../animations/animations';
+import { scrollToSection } from '../../utils/navigation';
 import styles from './About.module.css';
 
 const philosophies = [
@@ -96,7 +97,11 @@ export default function About() {
 
             <div className={styles.downloadRow}>
               <a
-                href="#contact"
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('contact', true);
+                }}
                 className={styles.resumeBtn}
               >
                 <i className="ri-mail-send-line" aria-hidden="true"></i>

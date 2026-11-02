@@ -1,11 +1,14 @@
+import { scrollToSection } from '../utils/navigation';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    scrollToSection('home', true);
+  };
+
+  const handleLinkClick = (e, id) => {
+    e.preventDefault();
+    scrollToSection(id, true);
   };
 
   const currentYear = new Date().getFullYear();
@@ -34,19 +37,19 @@ export default function Footer() {
               <h4 className={styles.colTitle}>Navigation</h4>
               <ul className={styles.linksList}>
                 <li className={styles.linkItem}>
-                  <a href="#home">Home</a>
+                  <a href="/" onClick={(e) => handleLinkClick(e, 'home')}>Home</a>
                 </li>
                 <li className={styles.linkItem}>
-                  <a href="#about">About</a>
+                  <a href="/about" onClick={(e) => handleLinkClick(e, 'about')}>About</a>
                 </li>
                 <li className={styles.linkItem}>
-                  <a href="#projects">Projects</a>
+                  <a href="/projects" onClick={(e) => handleLinkClick(e, 'projects')}>Projects</a>
                 </li>
                 <li className={styles.linkItem}>
-                  <a href="#experience">Experience</a>
+                  <a href="/experience" onClick={(e) => handleLinkClick(e, 'experience')}>Experience</a>
                 </li>
                 <li className={styles.linkItem}>
-                  <a href="#contact">Contact</a>
+                  <a href="/contact" onClick={(e) => handleLinkClick(e, 'contact')}>Contact</a>
                 </li>
               </ul>
             </div>

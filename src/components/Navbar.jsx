@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import { scrollToSection } from '../utils/navigation';
 import styles from './Navbar.module.css';
 
 const navItems = [
@@ -55,16 +56,7 @@ export default function Navbar() {
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const topOffset = 70;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
+    scrollToSection(id, true);
   };
 
   return (
@@ -72,7 +64,7 @@ export default function Navbar() {
       <div className={`container ${styles.navContainer}`}>
         {/* Brand Logo */}
         <a
-          href="#home"
+          href="/"
           className={styles.logo}
           onClick={(e) => handleNavClick(e, 'home')}
           aria-label="Varun Portfolio Home"
@@ -88,10 +80,11 @@ export default function Navbar() {
           <ul className={styles.navLinksList}>
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
+              const linkHref = item.id === 'home' ? '/' : `/${item.id}`;
               return (
                 <li key={item.id} className={styles.navItem}>
                   <a
-                    href={`#${item.id}`}
+                    href={linkHref}
                     onClick={(e) => handleNavClick(e, item.id)}
                     className={`${styles.navLink} ${isActive ? styles.activeLink : ''}`}
                   >
@@ -110,7 +103,7 @@ export default function Navbar() {
           </ul>
 
           <a
-            href="#contact"
+            href="/contact"
             onClick={(e) => handleNavClick(e, 'contact')}
             className={styles.contactBtn}
           >
@@ -143,10 +136,11 @@ export default function Navbar() {
             <ul className={styles.mobileNavLinks}>
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
+                const linkHref = item.id === 'home' ? '/' : `/${item.id}`;
                 return (
                   <li key={item.id}>
                     <a
-                      href={`#${item.id}`}
+                      href={linkHref}
                       onClick={(e) => handleNavClick(e, item.id)}
                       className={`${styles.mobileNavLink} ${
                         isActive ? styles.mobileNavLinkActive : ''
@@ -161,7 +155,7 @@ export default function Navbar() {
             </ul>
 
             <a
-              href="#contact"
+              href="/contact"
               onClick={(e) => handleNavClick(e, 'contact')}
               className={styles.mobileContactBtn}
             >
