@@ -121,6 +121,11 @@ export default function Navbar() {
         >
           <i className={mobileMenuOpen ? 'ri-close-line' : 'ri-menu-4-line'} aria-hidden="true"></i>
         </button>
+
+        {/* Scroll Progress Bar nestled inside nav container */}
+        <div className={styles.progressBarTrack}>
+          <motion.div className={styles.progressBar} style={{ scaleX }} />
+        </div>
       </div>
 
       {/* Mobile Animated Dropdown */}
@@ -165,9 +170,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Scroll Progress Bar */}
-      <motion.div className={styles.progressBar} style={{ scaleX }} />
     </header>
   );
 }
