@@ -45,13 +45,14 @@
   border: 1px solid transparent;
 }
 
-/* Normal Hero State: Clean Transparent Header with bottom boundary */
+/* Normal Hero State: Semi-translucent Glass with clean boundary */
 .header:not(.scrolled) .navContainer {
-  background: rgba(255, 251, 244, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 251, 244, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-radius: 0;
-  border-bottom: 1px solid rgba(230, 223, 209, 0.4);
+  border-bottom: 1px solid rgba(230, 223, 209, 0.85);
+  box-shadow: 0 2px 12px rgba(17, 18, 13, 0.03);
   max-width: 100%;
   padding-inline: 1.5rem;
 }
@@ -74,15 +75,15 @@
   max-width: 1040px;
   margin-inline: 1rem;
   padding: 0.45rem 0.8rem 0.45rem 1.25rem;
-  background: rgba(255, 251, 244, 0.78);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 251, 244, 0.92);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(230, 223, 209, 0.8);
   box-shadow: 
-    0 12px 36px -6px rgba(17, 18, 13, 0.1),
-    0 4px 14px rgba(17, 18, 13, 0.04),
+    0 16px 40px -8px rgba(17, 18, 13, 0.12),
+    0 4px 14px rgba(17, 18, 13, 0.05),
     inset 0 1px 1px rgba(255, 255, 255, 0.95),
-    inset 0 -1px 2px rgba(216, 207, 188, 0.3);
+    inset 0 -1px 2px rgba(216, 207, 188, 0.35);
 }
 
 @media (min-width: 768px) {

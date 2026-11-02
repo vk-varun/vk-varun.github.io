@@ -26,16 +26,16 @@ export default function Navbar({ currentPage, onNavigateHome }) {
   });
 
   useEffect(() => {
-    if (currentPage === 'all-projects') {
-      return;
-    }
-
     const handleScroll = () => {
-      // Toggle sticky style
+      // Toggle sticky floating style when scrolled down
       if (window.scrollY > 30) {
         setScrolled(true);
       } else {
         setScrolled(false);
+      }
+
+      if (currentPage === 'all-projects') {
+        return;
       }
 
       // Detect active section
