@@ -11,10 +11,12 @@ const navItems = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ currentPage, onNavigateHome }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const displayedActiveSection = currentPage === 'all-projects' ? 'projects' : activeSection;
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -24,6 +26,10 @@ export default function Navbar() {
   });
 
   useEffect(() => {
+    if (currentPage === 'all-projects') {
+      return;
+    }
+
     const handleScroll = () => {
       // Toggle sticky style
       if (window.scrollY > 30) {
@@ -51,11 +57,19 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [currentPage]);
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+
+    if (currentPage === 'all-projects') {
+      if (onNavigateHome) {
+        onNavigateHome(id);
+      }
+      return;
+    }
+
     scrollToSection(id, true);
   };
 
@@ -79,7 +93,7 @@ export default function Navbar() {
         <nav className={styles.desktopNav} aria-label="Main Navigation">
           <ul className={styles.navLinksList}>
             {navItems.map((item) => {
-              const isActive = activeSection === item.id;
+              const isActive = displayedActiveSection === item.id;
               const linkHref = item.id === 'home' ? '/' : `/${item.id}`;
               return (
                 <li key={item.id} className={styles.navItem}>
@@ -140,7 +154,7 @@ export default function Navbar() {
           >
             <ul className={styles.mobileNavLinks}>
               {navItems.map((item) => {
-                const isActive = activeSection === item.id;
+                const isActive = displayedActiveSection === item.id;
                 const linkHref = item.id === 'home' ? '/' : `/${item.id}`;
                 return (
                   <li key={item.id}>

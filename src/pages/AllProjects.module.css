@@ -1,0 +1,168 @@
+.allProjectsPage {
+  min-height: 100vh;
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: 7rem;
+  position: relative;
+  background-color: var(--color-background);
+}
+
+.pageHeader {
+  max-width: 800px;
+  margin: 0 auto 3.5rem auto;
+  text-align: center;
+}
+
+.backHomeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.75rem;
+  transition: all var(--transition-fast);
+}
+
+.backHomeBtn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  transform: translateX(-3px);
+  border-color: var(--color-primary);
+}
+
+.pageTitle {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.pageSubtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3.5rem;
+}
+
+.filterBtn {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+}
+
+.filterBtn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-accent-dark);
+}
+
+.filterBtnActive {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse) !important;
+  border-color: var(--color-primary);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(17, 18, 13, 0.12);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .projectsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.clientShareBanner {
+  margin-top: 5rem;
+  padding: 2.5rem 3rem;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 768px) {
+  .clientShareBanner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.bannerHeading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.bannerText {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.bannerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contactCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.contactCtaBtn:hover {
+  background-color: #272821;
+  transform: translateY(-2px);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(17, 18, 13, 0.16);
+}
+

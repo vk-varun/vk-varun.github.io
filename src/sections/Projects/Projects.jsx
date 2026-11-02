@@ -12,7 +12,7 @@ const filterCategories = [
   { id: 'systems', label: 'Systems & Cloud' },
 ];
 
-export default function Projects() {
+export default function Projects({ onViewAllProjects }) {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const filteredProjects =
@@ -82,6 +82,36 @@ export default function Projects() {
               </motion.div>
             ))}
           </AnimatePresence>
+        </motion.div>
+
+        {/* View All Projects CTA Banner */}
+        <motion.div
+          className={styles.viewAllBanner}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+        >
+          <div className={styles.viewAllTextCol}>
+            <span className={styles.viewAllTag}>Extended Archive</span>
+            <h3 className={styles.viewAllHeading}>Looking to review my complete portfolio?</h3>
+            <p className={styles.viewAllDescription}>
+              Explore the full archive featuring web applications, mobile platforms, enterprise cloud
+              architectures, and technical case studies designed for clients and partners.
+            </p>
+          </div>
+
+          <a
+            href="/all-projects"
+            onClick={(e) => {
+              e.preventDefault();
+              if (onViewAllProjects) onViewAllProjects();
+            }}
+            className={styles.viewAllBtn}
+          >
+            <span>View All Projects</span>
+            <i className="ri-arrow-right-line" aria-hidden="true"></i>
+          </a>
         </motion.div>
 
         {/* GitHub Repositories Banner */}

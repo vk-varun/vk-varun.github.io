@@ -1,13 +1,21 @@
 import { scrollToSection } from '../utils/navigation';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer({ onNavigateHome }) {
   const scrollToTop = () => {
+    if (onNavigateHome) {
+      onNavigateHome('home');
+      return;
+    }
     scrollToSection('home', true);
   };
 
   const handleLinkClick = (e, id) => {
     e.preventDefault();
+    if (onNavigateHome) {
+      onNavigateHome(id);
+      return;
+    }
     scrollToSection(id, true);
   };
 
