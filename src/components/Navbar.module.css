@@ -218,8 +218,10 @@
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
   box-shadow: 0 4px 14px rgba(17, 18, 13, 0.12);
+  animation: periodicNudge 6.5s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 .contactBtn:hover {
@@ -227,6 +229,37 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(17, 18, 13, 0.18);
   color: #fff;
+  animation: none;
+}
+
+.contactBtn:hover .contactBtnIcon {
+  transform: translate(2px, -2px);
+}
+
+.contactBtnIcon {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+@keyframes periodicNudge {
+  0%, 82%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  85% {
+    transform: translateY(-2px) rotate(-2.5deg) scale(1.02);
+  }
+  88% {
+    transform: translateY(-2px) rotate(2.5deg) scale(1.02);
+  }
+  91% {
+    transform: translateY(-1px) rotate(-1.5deg) scale(1.01);
+  }
+  94% {
+    transform: translateY(0) rotate(1deg) scale(1.01);
+  }
+  97% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
 }
 
 /* Mobile Toggle */
