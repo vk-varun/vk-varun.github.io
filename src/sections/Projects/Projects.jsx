@@ -15,10 +15,13 @@ const filterCategories = [
 export default function Projects({ onViewAllProjects }) {
   const [activeFilter, setActiveFilter] = useState('all');
 
+  // Display only the original 6 featured projects on the homepage "Selected Engineering Projects"
+  const homeProjects = projects.filter((project) => project.id <= 6);
+
   const filteredProjects =
     activeFilter === 'all'
-      ? projects
-      : projects.filter((project) => project.categoryGroup === activeFilter);
+      ? homeProjects
+      : homeProjects.filter((project) => project.categoryGroup === activeFilter);
 
   return (
     <section id="projects" className={styles.projectsSection}>

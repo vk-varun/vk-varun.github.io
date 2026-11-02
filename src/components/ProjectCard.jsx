@@ -4,12 +4,15 @@ import styles from './ProjectCard.module.css';
 
 export default function ProjectCard({
   title,
+  subtitle,
   description,
   tags = [],
   image,
   category,
+  badge,
   liveUrl,
   githubUrl,
+  publicationStatus,
 }) {
   return (
     <motion.article
@@ -18,7 +21,7 @@ export default function ProjectCard({
       className={styles.card}
     >
       <div className={styles.imageWrapper}>
-        {category && <span className={styles.cardBadge}>{category}</span>}
+        <span className={styles.cardBadge}>{badge || category}</span>
         <img
           src={image}
           alt={`${title} project preview`}
@@ -29,7 +32,10 @@ export default function ProjectCard({
 
       <div className={styles.cardContent}>
         <div className={styles.cardHeader}>
-          <h3 className={styles.cardTitle}>{title}</h3>
+          <div>
+            <h3 className={styles.cardTitle}>{title}</h3>
+            {subtitle && <span className={styles.cardSubtitle}>{subtitle}</span>}
+          </div>
         </div>
 
         <p className={styles.cardDescription}>{description}</p>
@@ -53,7 +59,7 @@ export default function ProjectCard({
               className={`${styles.actionLink} ${styles.liveBtn}`}
               aria-label={`View live demo of ${title}`}
             >
-              <span>Live Demo</span>
+              <span>{liveUrl.includes('apps.apple.com') ? 'App Store' : 'Live Demo'}</span>
               <i className="ri-arrow-right-up-line" aria-hidden="true"></i>
             </a>
           )}
@@ -69,6 +75,13 @@ export default function ProjectCard({
               <i className="ri-github-line" aria-hidden="true"></i>
               <span>Source</span>
             </a>
+          )}
+
+          {publicationStatus && (
+            <span className={styles.paperBadge}>
+              <i className="ri-article-line" aria-hidden="true"></i>
+              <span>{publicationStatus}</span>
+            </span>
           )}
         </div>
       </div>
