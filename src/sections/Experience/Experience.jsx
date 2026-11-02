@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../../animations/animations';
 import styles from './Experience.module.css';
 
@@ -94,6 +95,16 @@ const timelineEntries = [
 ];
 
 export default function Experience() {
+  // Keep the first 2 cards expanded by default on mobile, rest collapsed for quick scanning
+  const [expandedItems, setExpandedItems] = useState({ 0: true, 1: true });
+
+  const toggleExpand = (index) => {
+    setExpandedItems((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   return (
     <section id="experience" className={styles.experienceSection}>
       <div className="container">
@@ -126,6 +137,7 @@ export default function Experience() {
           >
             {timelineEntries.map((item, idx) => {
               const isEducation = item.type === 'education';
+              const isExpanded = !!expandedItems[idx];
 
               return (
                 <motion.li key={idx} variants={fadeInUp} className={styles.timelineItem}>
@@ -171,30 +183,54 @@ export default function Experience() {
                         </p>
                       </div>
 
-                      <span className={styles.periodBadge}>
-                        <i className="ri-calendar-line" aria-hidden="true" />
-                        <span>{item.period}</span>
-                      </span>
+                      <div className={styles.topRightActions}>
+                        <span className={styles.periodBadge}>
+                          <i className="ri-calendar-line" aria-hidden="true" />
+                          <span>{item.period}</span>
+                        </span>
+
+                        {/* Mobile Toggle Button */}
+                        <button
+                          type="button"
+                          className={styles.mobileExpandBtn}
+                          onClick={() => toggleExpand(idx)}
+                          aria-expanded={isExpanded}
+                          aria-label={isExpanded ? 'Collapse details' : 'Expand details'}
+                        >
+                          <span>{isExpanded ? 'Less' : 'Details'}</span>
+                          <i
+                            className={isExpanded ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'}
+                            aria-hidden="true"
+                          />
+                        </button>
+                      </div>
                     </div>
 
-                    <ul className={styles.highlightsList}>
-                      {item.highlights.map((highlight, hIdx) => (
-                        <li key={hIdx} className={styles.highlightItem}>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Desktop always visible; Mobile animates based on isExpanded */}
+                    <div className={`${styles.cardBody} ${isExpanded ? styles.mobileExpanded : styles.mobileCollapsed}`}>
+                      <AnimatePresence initial={false}>
+                        <div className={styles.collapsibleInner}>
+                          <ul className={styles.highlightsList}>
+                            {item.highlights.map((highlight, hIdx) => (
+                              <li key={hIdx} className={styles.highlightItem}>
+                                {highlight}
+                              </li>
+                            ))}
+                          </ul>
 
-                    <ul
-                      className={styles.techTags}
-                      aria-label="Technologies and competencies"
-                    >
-                      {item.tech.map((t) => (
-                        <li key={t} className={styles.techTag}>
-                          {t}
-                        </li>
-                      ))}
-                    </ul>
+                          <ul
+                            className={styles.techTags}
+                            aria-label="Technologies and competencies"
+                          >
+                            {item.tech.map((t) => (
+                              <li key={t} className={styles.techTag}>
+                                {t}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </AnimatePresence>
+                    </div>
                   </div>
                 </motion.li>
               );
