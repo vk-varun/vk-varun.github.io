@@ -1,7 +1,7 @@
 import { scrollToSection } from '../utils/navigation';
 import styles from './Footer.module.css';
 
-export default function Footer({ onNavigateHome }) {
+export default function Footer({ onNavigateHome, onNavigateBlogs }) {
   const scrollToTop = () => {
     if (onNavigateHome) {
       onNavigateHome('home');
@@ -12,6 +12,12 @@ export default function Footer({ onNavigateHome }) {
 
   const handleLinkClick = (e, id) => {
     e.preventDefault();
+    if (id === 'blogs') {
+      if (onNavigateBlogs) {
+        onNavigateBlogs();
+        return;
+      }
+    }
     if (onNavigateHome) {
       onNavigateHome(id);
       return;
@@ -55,6 +61,9 @@ export default function Footer({ onNavigateHome }) {
                 </li>
                 <li className={styles.linkItem}>
                   <a href="/experience" onClick={(e) => handleLinkClick(e, 'experience')}>Experience</a>
+                </li>
+                <li className={styles.linkItem}>
+                  <a href="/blogs" onClick={(e) => handleLinkClick(e, 'blogs')}>Blogs</a>
                 </li>
                 <li className={styles.linkItem}>
                   <a href="/contact" onClick={(e) => handleLinkClick(e, 'contact')}>Contact</a>

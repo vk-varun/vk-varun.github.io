@@ -7,23 +7,48 @@ import Experience from './sections/Experience/Experience';
 import Contact from './sections/Contact/Contact';
 import Footer from './components/Footer';
 import AllProjects from './pages/AllProjects';
+import Blogs from './pages/Blogs';
+import BlogPost from './pages/BlogPost';
 import { handleInitialNavigation, scrollToSection } from './utils/navigation';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home-view'); // 'home-view' | 'all-projects'
+  const [currentPage, setCurrentPage] = useState('home-view'); // 'home-view' | 'all-projects' | 'blogs' | 'blog-post'
+  const [activeBlogSlug, setActiveBlogSlug] = useState('');
 
   useEffect(() => {
-    handleInitialNavigation((page) => {
+    handleInitialNavigation((page, fullPath) => {
+      if (page === 'blogs') {
+        const parts = (fullPath || '').split('/');
+        if (parts.length > 1 && parts[1]) {
+          setActiveBlogSlug(parts[1]);
+          setCurrentPage('blog-post');
+          return;
+        }
+        setCurrentPage('blogs');
+        return;
+      }
       setCurrentPage(page);
     });
 
     // Listen for browser forward/backward buttons
     const handlePopState = () => {
       const path = window.location.pathname.replace(/^\/+/, '') || 'home';
-      const rootPath = path.toLowerCase().split('/')[0];
+      const parts = path.toLowerCase().split('/');
+      const rootPath = parts[0];
 
       if (rootPath === 'all-projects') {
         setCurrentPage('all-projects');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      if (rootPath === 'blogs') {
+        if (parts.length > 1 && parts[1]) {
+          setActiveBlogSlug(parts[1]);
+          setCurrentPage('blog-post');
+        } else {
+          setCurrentPage('blogs');
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
@@ -53,6 +78,19 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navigateToBlogs = () => {
+    setCurrentPage('blogs');
+    window.history.pushState(null, '', '/blogs');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateToBlogPost = (slug) => {
+    setActiveBlogSlug(slug);
+    setCurrentPage('blog-post');
+    window.history.pushState(null, '', `/blogs/${slug}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navigateToHomeSection = (sectionId = 'home') => {
     setCurrentPage('home-view');
     const cleanPath = sectionId === 'home' ? '/' : `/${sectionId}`;
@@ -71,12 +109,24 @@ function App() {
       <Navbar
         currentPage={currentPage}
         onNavigateHome={navigateToHomeSection}
+        onNavigateBlogs={navigateToBlogs}
       />
 
-      {/* Main Content Sections or Dedicated All Projects Page */}
+      {/* Main Content Sections or Dedicated Standalone Pages */}
       <main id="main-content">
         {currentPage === 'all-projects' ? (
           <AllProjects onNavigateHome={navigateToHomeSection} />
+        ) : currentPage === 'blogs' ? (
+          <Blogs
+            onNavigateHome={navigateToHomeSection}
+            onSelectBlog={navigateToBlogPost}
+          />
+        ) : currentPage === 'blog-post' ? (
+          <BlogPost
+            slug={activeBlogSlug}
+            onNavigateHome={navigateToHomeSection}
+            onNavigateBlogs={navigateToBlogs}
+          />
         ) : (
           <>
             <Home />
@@ -89,7 +139,10 @@ function App() {
       </main>
 
       {/* Site Footer */}
-      <Footer onNavigateHome={navigateToHomeSection} />
+      <Footer
+        onNavigateHome={navigateToHomeSection}
+        onNavigateBlogs={navigateToBlogs}
+      />
     </div>
   );
 }

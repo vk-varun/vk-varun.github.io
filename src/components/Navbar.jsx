@@ -8,15 +8,21 @@ const navItems = [
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
+  { id: 'blogs', label: 'Blogs' },
   { id: 'contact', label: 'Contact' },
 ];
 
-export default function Navbar({ currentPage, onNavigateHome }) {
+export default function Navbar({ currentPage, onNavigateHome, onNavigateBlogs }) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const displayedActiveSection = currentPage === 'all-projects' ? 'projects' : activeSection;
+  let displayedActiveSection = activeSection;
+  if (currentPage === 'all-projects') {
+    displayedActiveSection = 'projects';
+  } else if (currentPage === 'blogs' || currentPage === 'blog-post') {
+    displayedActiveSection = 'blogs';
+  }
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -34,7 +40,7 @@ export default function Navbar({ currentPage, onNavigateHome }) {
         setScrolled(false);
       }
 
-      if (currentPage === 'all-projects') {
+      if (currentPage === 'all-projects' || currentPage === 'blogs' || currentPage === 'blog-post') {
         return;
       }
 
@@ -63,7 +69,14 @@ export default function Navbar({ currentPage, onNavigateHome }) {
     e.preventDefault();
     setMobileMenuOpen(false);
 
-    if (currentPage === 'all-projects') {
+    if (id === 'blogs') {
+      if (onNavigateBlogs) {
+        onNavigateBlogs();
+      }
+      return;
+    }
+
+    if (currentPage === 'all-projects' || currentPage === 'blogs' || currentPage === 'blog-post') {
       if (onNavigateHome) {
         onNavigateHome(id);
       }

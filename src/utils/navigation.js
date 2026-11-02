@@ -1,6 +1,6 @@
 // Known section routes
 export const SECTION_ROUTES = ['home', 'about', 'projects', 'experience', 'contact'];
-export const STANDALONE_PAGES = ['all-projects'];
+export const STANDALONE_PAGES = ['all-projects', 'blogs'];
 
 /**
  * Scroll smoothly to a section element by id
@@ -52,7 +52,7 @@ export function handleInitialNavigation(onPageChange) {
     const route = targetPath.toLowerCase().split('/')[0];
 
     if (STANDALONE_PAGES.includes(route)) {
-      if (onPageChange) onPageChange(route);
+      if (onPageChange) onPageChange(route, targetPath);
       return;
     }
 

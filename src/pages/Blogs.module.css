@@ -1,0 +1,138 @@
+.blogsPage {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  min-height: 80vh;
+}
+
+.pageHeader {
+  max-width: 820px;
+  margin-bottom: 3rem;
+}
+
+.backHomeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.backHomeBtn:hover {
+  color: var(--color-primary);
+  transform: translateX(-4px);
+}
+
+.pageTitle {
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.pageSubtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.75rem;
+}
+
+.filterBtn {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filterBtn:hover {
+  border-color: var(--color-accent-dark);
+  color: var(--color-primary);
+}
+
+.filterBtnActive {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.blogsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.newsletterBanner {
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.bannerHeading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.bannerText {
+  color: var(--color-text-secondary);
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.contactCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.contactCtaBtn:hover {
+  background-color: #292a23;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .blogsPage {
+    padding-top: 5.5rem;
+  }
+  .blogsGrid {
+    grid-template-columns: 1fr;
+  }
+  .newsletterBanner {
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
