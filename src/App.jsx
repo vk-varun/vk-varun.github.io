@@ -11,9 +11,34 @@ import Blogs from './pages/Blogs';
 import BlogPost from './pages/BlogPost';
 import { handleInitialNavigation, scrollToSection } from './utils/navigation';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('home-view'); // 'home-view' | 'all-projects' | 'blogs' | 'blog-post'
-  const [activeBlogSlug, setActiveBlogSlug] = useState('');
+function getInitialRouteState() {
+  if (typeof window === 'undefined') {
+    return { page: 'home-view', slug: '' };
+  }
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectPath = urlParams.get('p');
+  const rawPath = redirectPath
+    ? decodeURIComponent(redirectPath).replace(/^\/+/, '')
+    : window.location.pathname.replace(/^\/+/, '');
+  const parts = rawPath.toLowerCase().split('/');
+  const route = parts[0];
+
+  if (route === 'all-projects') {
+    return { page: 'all-projects', slug: '' };
+  }
+  if (route === 'blogs') {
+    if (parts.length > 1 && parts[1]) {
+      return { page: 'blog-post', slug: parts[1] };
+    }
+    return { page: 'blogs', slug: '' };
+  }
+  return { page: 'home-view', slug: '' };
+}
+
+function App({ initialPage, initialBlogSlug } = {}) {
+  const initial = getInitialRouteState();
+  const [currentPage, setCurrentPage] = useState(initialPage ?? initial.page); // 'home-view' | 'all-projects' | 'blogs' | 'blog-post'
+  const [activeBlogSlug, setActiveBlogSlug] = useState(initialBlogSlug ?? initial.slug);
 
   useEffect(() => {
     handleInitialNavigation((page, fullPath) => {
