@@ -1,0 +1,43 @@
+# Varun Kumaravel — Software Developer & Tech Entrepreneur
+
+> Portfolio of Varun Kumaravel, a Software Developer and Tech Entrepreneur based in Dubai, UAE, specializing in full-stack web & mobile development, cloud computing, and scalable network architectures.
+
+## Profile & Links
+- **Website**: https://vk-varun.github.io/
+- **GitHub**: https://github.com/vk-varun
+- **LinkedIn**: https://www.linkedin.com/in/varun-kumaravel/
+- **All Projects**: https://vk-varun.github.io/all-projects
+- **Engineering Blogs**: https://vk-varun.github.io/blogs
+
+## Education
+- **M.Sc. Network Management and Cloud Computing** — Middlesex University, Dubai, UAE (2025 – Present)
+- **Bachelor of Science in Computer Science** — *Summa Cum Laude*
+
+## Professional Experience
+- **Lead Developer & Technical Advisor** — Creators Blueprint, Dubai, UAE (Dec 2025 – Present)
+- **Operations Support & Digital Transformation Intern** — ADNOC Offshore, Abu Dhabi, UAE (May 2025 – Jul 2025)
+- **Full Stack Developer** — HonetPay, Edmonton, AB, Canada (Aug 2023 – Jun 2024)
+- **Data Analysis & Geospatial Intern** — Sightspectrum Technology Solutions LLC, Abu Dhabi, UAE (Aug 2022)
+- **Research & Spatial Analysis Intern** — iSpatial Techno Solutions LLC, Abu Dhabi, UAE (Jun 2022 – Jul 2022)
+
+## Core Skills & Expertise
+- **Frontend**: React 19, Next.js, TypeScript, JavaScript (ESNext), Vue.js, Vite, Framer Motion, CSS Modules, Tailwind CSS
+- **Backend & APIs**: Node.js, Express.js, Python, FastAPI, RESTful APIs, GraphQL, WebSockets, MQTT, Microservices
+- **Cloud, Systems & Databases**: Google Cloud Platform (GCP), AWS, OpenStack, Terraform, Kolla-Ansible, Ceph, Docker, PostgreSQL, MongoDB, Redis, SQL
+- **Mobile**: Flutter, Android Studio (Java, XML), Firebase, Google Maps API
+
+## Key Projects & Research
+- [Smart Grid Monitoring & Anomaly Detection](https://github.com/vk-varun/smart-grid-anomaly-detection) — Master's Dissertation Project using Edge-Fog-Cloud architecture, Python, MQTT, FastAPI, and GCP.
+- [CB Studio](https://creatorsblueprint.io/) — Creator monetization SaaS platform built with Next.js, SQL, Stripe, and GCP.
+- [CuriousMe](https://apps.apple.com/us/app/curiousme/id6802816539) — iOS pain & health journal app built with Flutter and Firebase.
+- **Autonomous Private Cloud Infrastructure for Digital Healthcare in Smart Cities** — IEEE Conference Research Paper using Terraform, Kolla-Ansible, OpenStack, and Ceph on GCP.
+- [InTrack (IT Asset Management System)](https://github.com/vk-varun/InTrack) — Enterprise asset tracking & request-approval platform built on the MEVN stack.
+- **AfterBell** — Extracurricular activity discovery and class booking platform built on the MEVN stack.
+- **HonetPay** — Creator social investment and fan monetization platform built with React, Node.js, and PostgreSQL.
+- [SnapScan](https://github.com/CMPUT301W23T51/SnapScan) — QR code-based Android location game built with Java, Google Maps API, and Firebase.
+
+## Engineering Blog Articles
+- [Building an Edge-Fog-Cloud Architecture for Smart Grid Telemetry](https://vk-varun.github.io/blogs/smart-grid-edge-fog-cloud)
+- [Architecting Resilient Private Clouds for Digital Healthcare in Smart Cities](https://vk-varun.github.io/blogs/autonomous-private-clouds-healthcare)
+- [From Concept to Scale: Engineering CB Studio for Creator Monetization](https://vk-varun.github.io/blogs/engineering-cb-studio-creator-monetization)
+
